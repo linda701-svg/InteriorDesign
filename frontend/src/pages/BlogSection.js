@@ -55,7 +55,7 @@ const BlogSection = () => {
                         <p className="blog-header-desc">Stay updated with our latest articles covering modern design concepts, project highlights, and expert tips.</p>
                     </Col>
                     <Col lg={3} className="text-lg-end">
-                        <Button as={Link} to="/blog" className="blog-view-all-btn ms-lg-auto">
+                        <Button as={Link} to="/blog" className="blog-view-all-btn text-nowrap ms-lg-auto">
                             View All <div className="icon-circle"><BsArrowUpRight /></div>
                         </Button>
                     </Col>

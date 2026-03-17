@@ -17,7 +17,7 @@ const AppNavbar = () => {
     return (
         <div className="navbar-capsule-wrapper">
             <Navbar expand="lg" className="custom-navbar" variant="dark">
-                <Container fluid className="d-flex align-items-center justify-content-between">
+                <Container fluid className="d-flex align-items-center justify-content-between flex-wrap">
                     <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
                         <div className="logo-icon">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -26,17 +26,17 @@ const AppNavbar = () => {
                                 <path d="M12 2L4 18h16L12 2z" fill="none" stroke="currentColor" strokeWidth="2" />
                             </svg>
                         </div>
-                         <h2 className="footer-brand-title fw-bold mb-0">
+                         <h2 className="footer-brand-title fw-bold mb-0 fs-4 fs-lg-2 text-nowrap">
                                 <span className="brand-arch">Arch</span>
                                 <span className="brand-evo">Evo</span>
                             </h2>
                     </Navbar.Brand>
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none">
-                        <HiMenuAlt3 className="text-white" style={{ fontSize: '2rem' }} />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none flex-shrink-0">
+                        <HiMenuAlt3 className="text-white" style={{ fontSize: '1.8rem' }} />
                     </Navbar.Toggle>
 
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
                         <Nav className="mx-auto align-items-center gap-4">
                             <Nav.Link as={Link} to="/" className={`nav-link-custom ${location.pathname === '/' ? 'active' : ''}`}>
                                 Home

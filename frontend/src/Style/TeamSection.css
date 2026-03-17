@@ -256,10 +256,21 @@
     }
 
     .team-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .team-stat-number {
+        font-size: 2.2rem;
+    }
+
+    .team-stat-label {
+        font-size: 0.9rem;
     }
 
     .team-stats-section {
-        padding: 20px 0;
+        padding: 30px 0;
+        width: 90%;
+        margin-left: 5%;
     }
 }

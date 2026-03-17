@@ -46,7 +46,7 @@ const Home = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <div className="hero-subtitle-wrapper">
+                                <div className="hero-subtitle-wrapper" style={{ marginTop: '80px' }}>
                                     <FaHouse className="hero-subtitle-icon" />
                                     <span className="hero-subtitle-text">Crafting architecture that shapes the future.</span>
                                 </div>
@@ -67,7 +67,7 @@ const Home = () => {
                                     <Link to="/contact" className="btn-contact">
                                         Contact us <MdArrowOutward />
                                     </Link>
-                                    <div className="watch-process-wrapper">
+                                    <div className="watch-process-wrapper d-none d-lg-flex">
                                         <div className="play-button-icon">
                                             <FaPlay />
                                         </div>
@@ -135,7 +135,7 @@ const Home = () => {
                     </Row>
 
                     {/* CTA Buttons Strip (Moved inside Hero Container context for layout) */}
-                    <div className="hero-bottom-strip">
+                    <div className="hero-bottom-strip d-flex flex-column flex-md-row">
                         <button className="hero-bottom-btn">Explore Designs</button>
                         <button className="hero-bottom-btn">View Services</button>
                         <button className="hero-bottom-btn">Request Estimate</button>

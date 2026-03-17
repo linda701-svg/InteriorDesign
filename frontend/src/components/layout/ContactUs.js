@@ -72,7 +72,7 @@ const ContactUs = () => {
                     <Row className="g-0">
                         {/* Left Side: Form */}
                         <Col lg={7} className="contact-form-side">
-                            <Container className="form-inner-container">
+                            <Container className="form-inner-container w-100">
                                 <div className="contact-label-wrapper">
                                     <FaHouse className="contact-label-icon" />
                                     <span>Contact Us</span>
@@ -138,7 +138,7 @@ const ContactUs = () => {
                         <Col lg={5} className="contact-info-side">
                             <div className="orange-accent-bg"></div>
                             <div className="contact-info-container" data-aos="fade-left" data-aos-delay="200">
-                                <div className="contact-info-box">
+                                <div className="contact-info-box w-100">
                                     <div className="info-item">
                                         <MdOutlinePhonelinkSetup className="info-icon" />
                                         <span className="info-title">Contact Number</span>

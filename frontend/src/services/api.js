@@ -35,6 +35,13 @@ export const projectService = {
     deleteProject: (id) => api.delete(`/projects/${id}`)
 };
 
+export const serviceService = {
+    getServices: (params) => api.get('/services', { params }),
+    createService: (data) => api.post('/services', data),
+    updateService: (id, data) => api.put(`/services/${id}`, data),
+    deleteService: (id) => api.delete(`/services/${id}`)
+};
+
 export const categoryService = {
     getCategories: (params) => api.get('/categories', { params }),
     createCategory: (data) => api.post('/categories', data),

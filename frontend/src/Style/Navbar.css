@@ -114,10 +114,24 @@
 
     .navbar-collapse {
         padding: 20px 0;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        align-items: center !important;
+        gap: 15px !important;
+        margin-bottom: 20px;
+    }
+
+    .nav-link-custom {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 0 !important;
     }
 
     .btn-get-started {
-        margin-top: 15px;
-        justify-content: space-between;
+        margin: 10px auto 0 !important;
+        justify-content: center;
+        width: fit-content;
     }
 }

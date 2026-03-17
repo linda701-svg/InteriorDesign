@@ -3,6 +3,7 @@ import { Container, Row, Col, Nav, Card, Spinner, Table, Button, ProgressBar } f
 import { Link, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectManagement from './ProjectManagement';
 import CategoryManagement from './CategoryManagement';
+import ServiceManagement from './ServiceManagement';
 import InquiryManagement from './InquiryManagement';
 import { statsService } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
@@ -127,6 +128,9 @@ const Dashboard = () => {
                         <Link to="/admin/dashboard/projects" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/projects')}`} onClick={() => setShowSidebar(false)}>
                             <i className="bi bi-collection-fill"></i> Projects
                         </Link>
+                        <Link to="/admin/dashboard/services" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/services')}`} onClick={() => setShowSidebar(false)}>
+                            <i className="bi bi-briefcase-fill"></i> Services
+                        </Link>
                         <Link to="/admin/dashboard/categories" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/categories')}`} onClick={() => setShowSidebar(false)}>
                             <i className="bi bi-tags-fill"></i> Categories
                         </Link>
@@ -156,6 +160,7 @@ const Dashboard = () => {
                         <Routes>
                             <Route path="/" element={<Overview />} />
                             <Route path="/projects" element={<ProjectManagement />} />
+                            <Route path="/services" element={<ServiceManagement />} />
                             <Route path="/categories" element={<CategoryManagement />} />
                             <Route path="/inquiries" element={<InquiryManagement />} />
                         </Routes>

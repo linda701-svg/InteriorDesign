@@ -45,7 +45,7 @@ const Login = () => {
     };
 
     return (
-        <section className="vh-100 d-flex align-items-center" style={{ backgroundColor: '#f8f9fa', marginTop: '160px', marginBottom:'50px', }}>
+        <section className="vh-100 d-flex align-items-center" style={{ backgroundColor: '#f8f9fa' }}>
             <Container>
                 <Row className="justify-content-center">
                     <Col md={5}>
