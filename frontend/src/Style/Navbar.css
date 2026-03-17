@@ -1,0 +1,123 @@
+/* Navbar.css */
+
+.navbar-capsule-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+}
+
+.custom-navbar {
+    background: rgba(18, 18, 18, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand-custom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #fff !important;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #121212;
+    padding: 5px;
+}
+
+.nav-link-custom {
+    color: #fff !important;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 10px;
+    padding: 8px 0 !important;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+    color: #FFB23F !important;
+}
+
+.dropdown-toggle::after {
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    vertical-align: middle;
+    margin-left: 5px;
+    opacity: 0.7;
+}
+
+.btn-get-started {
+    background-color: #FFB23F;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 8px 10px 8px 25px !important;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-get-started:hover {
+    background-color: #e69d2e;
+    transform: translateY(-2px);
+}
+
+.circle-arrow-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFB23F;
+    font-size: 1.2rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+    .navbar-capsule-wrapper {
+        width: 95%;
+        top: 10px;
+    }
+
+    .custom-navbar {
+        border-radius: 20px;
+    }
+
+    .navbar-collapse {
+        padding: 20px 0;
+    }
+
+    .btn-get-started {
+        margin-top: 15px;
+        justify-content: space-between;
+    }
+}

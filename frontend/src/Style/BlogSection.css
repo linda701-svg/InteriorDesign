@@ -1,0 +1,225 @@
+/* Blog Section Styles */
+.blog-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+@media (max-width: 992px) {
+    .blog-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 40px 0;
+    }
+}
+
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.blog-subtitle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.blog-home-icon {
+    color: #FFB23F;
+    font-size: 1rem;
+}
+
+.blog-subtitle {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.blog-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 0;
+    line-height: 1.1;
+    max-width: 500px;
+}
+
+.blog-desc-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-header-desc {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 450px;
+}
+
+.blog-view-all-btn {
+    background-color: #FFB23F !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 12px 25px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    color: #fff !important;
+    transition: all 0.3s ease !important;
+    width:50%;
+}
+
+.blog-view-all-btn .icon-circle {
+    background: #fff;
+    color: #FFB23F;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.blog-view-all-btn:hover {
+    background-color: #e6a238 !important;
+    transform: translateY(-2px);
+}
+
+/* Blog Cards */
+.blog-card {
+    background: #f8f8f8;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.blog-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.blog-image-wrapper {
+    position: relative;
+    padding: 15px;
+}
+
+.blog-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.blog-date-badge {
+    position: absolute;
+    bottom: -5px;
+    left: 40px;
+    background-color: #FFB23F;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    line-height: 1.1;
+    box-shadow: 0 4px 10px rgba(255, 178, 63, 0.3);
+}
+
+.blog-date-badge .day {
+    font-size: 1.2rem;
+}
+
+.blog-date-badge .month {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.blog-content {
+    padding: 30px 25px 40px;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-icon {
+    color: #FFB23F;
+    font-size: 1rem;
+}
+
+.blog-post-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.blog-post-desc {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.blog-learn-more-btn {
+    background-color: #FFB23F !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 10px 25px !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: fit-content !important;
+    transition: all 0.3s ease !important;
+}
+
+.blog-learn-more-btn:hover {
+    background-color: #e6a238 !important;
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .blog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .blog-title {
+        font-size: 2.5rem;
+    }
+
+    .blog-view-all-btn {
+        align-self: flex-start;
+    }
+}

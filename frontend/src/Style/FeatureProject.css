@@ -1,0 +1,235 @@
+/* Feature Project Section */
+.feature-project-section {
+    background-color: #111;
+    color: white;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Side Content */
+.feature-project-content {
+    z-index: 2;
+}
+
+.feature-subtitle {
+    color: #FFB23F;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.feature-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    color:white !important;
+}
+
+.feature-cta-btn {
+    background-color: #FFB23F;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.feature-cta-btn:hover {
+    background-color: #e69f35;
+    transform: translateY(-3px);
+    color: white;
+}
+
+.btn-arrow-icon {
+    background-color: white;
+    color: #FFB23F;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-cta-btn:hover .btn-arrow-icon {
+    transform: translateX(3px);
+}
+
+/* Right Side Image & Cards Overlay */
+.feature-image-wrapper {
+    position: relative;
+    height: 600px;
+    border-radius: 20px;
+    background-image: url('../assets/images/airbnb-management.webp');
+    /* Default fallback */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Feature Cards Grid Overlay */
+.feature-cards-overlay {
+    position: absolute;
+    bottom: -50px;
+    /* Slight overlap or offset */
+    left: -100px;
+    /* Overlap to the left content slightly for style */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 120%;
+    /* Extend wider than the parent container */
+    max-width: 800px;
+}
+
+/* Adjusted layout to match design: 
+   The design shows the cards are NOT overlapping the image, but are actually 
+   part of the left content/grid or a separate grid below.
+   Let's re-evaluate the layout based on the image.
+   
+   The image shows:
+   Left: Text + Button
+   Right: Large Image
+   Bottom (spanning largely): 4 Feature cards on dark background.
+   
+   Wait, the design looks like:
+   Top Half: [Text Left] [Image Right]
+   Bottom Half (or overlapping): [4 Feature Cards Grid]
+   
+   Actually, looking closer at the provided image:
+   It looks like a split section. 
+   Left Side (Dark bg): Text header + Button + 2x2 Grid of Cards
+   Right Side: Full height image
+   
+   Let's adjust the CSS to match this "Left Side Complex, Right Side Image" layout.
+*/
+
+.feature-layout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 800px;
+}
+
+.feature-left-panel {
+    background-color: #111;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feature-right-panel {
+    background-image: url('../assets/images/airbnb-management.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+}
+
+.feature-header {
+    margin-bottom: 60px;
+}
+
+.feature-grid-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature-card-item {
+    background-color: #1a1a1a;
+    /* Slightly lighter dark */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.feature-card-item:hover {
+    border-color: #FFB23F;
+    transform: translateY(-5px);
+}
+
+.feature-card-icon {
+    font-size: 2rem;
+    color: #FFB23F;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.feature-card-desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .feature-project-section {
+        padding: 60px 0;
+    }
+
+    .feature-layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-right-panel {
+        height: 400px;
+        order: -1;
+        /* Image on top on mobile/tablet */
+    }
+
+    .feature-left-panel {
+        padding: 60px 30px;
+    }
+
+    .feature-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .feature-project-section {
+        padding: 40px 0;
+    }
+
+    .feature-left-panel {
+        padding: 40px 20px;
+    }
+
+    .feature-grid-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-title {
+        font-size: 2rem;
+    }
+}

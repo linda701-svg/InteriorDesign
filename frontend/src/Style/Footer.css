@@ -1,0 +1,169 @@
+.footer-main {
+    background-color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-logo-circle {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+}
+
+.footer-logo-triangle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid #1a1a1a;
+    transform: translateY(-1px);
+}
+
+.footer-brand-title {
+    letter-spacing: 1px;
+    font-size: 2rem;
+    color: white;
+}
+
+.footer-newsletter-input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.brand-arch {
+    color: #ffffff;
+}
+
+.brand-evo {
+    color: #FFB23F;
+}
+
+
+.footer-description {
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.footer-social-link {
+    width: 42px;
+    height: 42px;
+    background-color: #FFB23F;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.footer-social-link:hover {
+    background-color: #e59a2a;
+    color: white;
+}
+
+.footer-section-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.footer-link-marker {
+    color: #FFB23F;
+    font-size: 0.9rem;
+}
+
+.footer-nav-link {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-nav-link:hover {
+    opacity: 1 !important;
+}
+
+.footer-contact-icon {
+    color: #FFB23F;
+    min-width: 20px;
+}
+
+.footer-contact-icon-lg {
+    font-size: 1.2rem;
+}
+
+.footer-contact-icon-md {
+    font-size: 1.1rem;
+}
+
+.footer-contact-icon-sm {
+    font-size: 1rem;
+}
+
+.footer-contact-text,
+.footer-newsletter-text {
+    font-size: 1.1rem;
+}
+
+.footer-newsletter-input {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-size: 1rem;
+}
+
+.footer-newsletter-btn {
+    background-color: #FFB23F !important;
+    border: none !important;
+    width: 48px;
+    height: 48px;
+}
+
+.footer-newsletter-btn-icon {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.footer-copyright-bar {
+    background-color: #000;
+}
+
+.footer-copyright-text {
+    font-size: 1rem;
+}
+
+/* Specific color for Quick Link header if needed */
+.footer-title-ivory {
+    color: #fffefdff;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #d18e29;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.3s ease forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

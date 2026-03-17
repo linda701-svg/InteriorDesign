@@ -1,0 +1,225 @@
+/* Who We Are Section */
+.who-we-are-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.who-we-are-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFB23F;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.who-we-are-label-icon {
+    font-size: 1.2rem;
+}
+
+.who-we-are-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #212529;
+    line-height: 1.3;
+    max-width: 90%;
+}
+
+/* Left Column - Images */
+.who-we-are-images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.who-we-are-main-image {
+    width: 100%;
+    height: 550px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.who-we-are-stats-card {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%),
+        url('../assets/images/year.webp') center/cover;
+    border-radius: 15px;
+    padding: 30px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.who-we-are-stats-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.who-we-are-stats-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.who-we-are-read-more-btn {
+    background-color: #FFB23F;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.who-we-are-read-more-btn:hover {
+    background-color: #e69f35;
+    transform: translateX(5px);
+}
+
+.who-we-are-read-more-btn .btn-icon {
+    font-size: 1rem;
+}
+
+/* Right Column - Content */
+.who-we-are-content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.who-we-are-center-image {
+    width: 100%;
+    height: 85%;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Vision and Mission Cards */
+.who-we-are-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.who-we-are-card {
+    background-color: transparent;
+}
+
+.who-we-are-card h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #212529;
+}
+
+.who-we-are-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Bottom Stats Cards */
+.who-we-are-bottom-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: -14px;
+}
+
+.who-we-are-stat-card {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 20px 10px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.who-we-are-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.who-we-are-stat-card-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.who-we-are-stat-icon {
+    font-size: 2.5rem;
+    color: #FFB23F;
+    margin-bottom: 15px;
+}
+
+.who-we-are-stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.who-we-are-stat-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .who-we-are-section {
+        padding: 60px 0;
+    }
+
+    .who-we-are-title {
+        font-size: 2.2rem;
+        max-width: 100%;
+    }
+
+    .who-we-are-images-column {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .who-we-are-section {
+        padding: 40px 0;
+    }
+
+    .who-we-are-title {
+        font-size: 1.8rem;
+    }
+
+    .who-we-are-bottom-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .who-we-are-stats-number {
+        font-size: 2.5rem;
+    }
+}
+
+
+/*partner*/
+.bg-dark.text-white h3,
+.bg-dark.text-white p {
+    color: #ffffff;
+
+}
+
+.bg-dark.text-white p {
+    color: #ffffff;
+    font-size: 16px;
+
+}
