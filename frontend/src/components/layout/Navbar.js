@@ -56,7 +56,7 @@ const AppNavbar = () => {
                             </Nav.Link>
                         </Nav>
 
-                        <Link to="/login" className="btn-get-started">
+                        <Link to="/contact" className="btn-get-started">
                             Get Started
                             <div className="circle-arrow-icon">
                                 <MdArrowOutward />
