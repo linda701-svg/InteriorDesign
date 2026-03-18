@@ -6,10 +6,6 @@ import {
     FaXTwitter,
     FaLinkedinIn,
     FaInstagram,
-    FaArrowRight,
-    FaEnvelope,
-    FaLocationDot,
-    FaMobileScreenButton,
     FaHouse
 } from 'react-icons/fa6';
 import { HiOutlineMail } from 'react-icons/hi';

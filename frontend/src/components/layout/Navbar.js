@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { FaPlay } from 'react-icons/fa';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { MdArrowOutward } from 'react-icons/md';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import '../../Style/Navbar.css';

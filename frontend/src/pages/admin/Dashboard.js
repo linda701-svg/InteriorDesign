@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Nav, Card, Spinner, Table, Button, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Card, Spinner, Table, Button } from 'react-bootstrap';
 import { Link, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectManagement from './ProjectManagement';
 import CategoryManagement from './CategoryManagement';

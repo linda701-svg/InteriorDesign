@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaHome, FaRegCalendarAlt, FaRegComments, FaArrowRight, FaArrowUp } from 'react-icons/fa';
+import { FaHome, FaRegCalendarAlt, FaRegComments,} from 'react-icons/fa';
 import { BsArrowUpRight } from "react-icons/bs";
 import '../Style/BlogSection.css';
 

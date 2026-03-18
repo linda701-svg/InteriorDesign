@@ -10,7 +10,11 @@ const app = express();
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'https://interiordesign-q203.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,9 +51,9 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/interior_d
 mongoose.connect(MONGO_URI)
     .then(() => {
         console.log('MongoDB connected successfully');
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
+        app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+});
     })
     .catch(err => {
         console.error('MongoDB connection error:', err);
