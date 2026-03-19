@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav, Card, Spinner, Table, Button } from 'react-bootstrap';
 import { Link, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import ProjectManagement from './ProjectManagement';
-import CategoryManagement from './CategoryManagement';
-import ServiceManagement from './ServiceManagement';
 import InquiryManagement from './InquiryManagement';
 import { statsService } from '../../services/api';
 import './Dashboard.css';
@@ -38,20 +35,7 @@ const Dashboard = () => {
 
             csvRows.push(['SUMMARY STATISTICS']);
             csvRows.push(['Metric', 'Count']);
-            csvRows.push(['Total Projects', data.counts.projects]);
-            csvRows.push(['Total Categories', data.counts.categories]);
             csvRows.push(['Total Inquiries', data.counts.inquiries]);
-            csvRows.push([]);
-
-            // Recent Projects Section
-            csvRows.push(['RECENT PROJECTS']);
-            csvRows.push(['Project Title', 'Category', 'Status', 'Date Added']);
-            data.recentProjects.forEach(p => {
-                // Escape commas in strings to avoid breaking CSV
-                const cleanTitle = `"${p.title.replace(/"/g, '""')}"`;
-                const cleanCat = `"${(p.category?.name || 'Uncategorized').replace(/"/g, '""')}"`;
-                csvRows.push([cleanTitle, cleanCat, p.status, new Date(p.createdAt).toLocaleDateString()]);
-            });
             csvRows.push([]);
 
             // Recent Inquiries Section
@@ -125,15 +109,6 @@ const Dashboard = () => {
                         <Link to="/admin/dashboard" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard')}`} onClick={() => setShowSidebar(false)}>
                             <i className="bi bi-grid-1x2-fill"></i> Dashboard
                         </Link>
-                        <Link to="/admin/dashboard/projects" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/projects')}`} onClick={() => setShowSidebar(false)}>
-                            <i className="bi bi-collection-fill"></i> Projects
-                        </Link>
-                        <Link to="/admin/dashboard/services" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/services')}`} onClick={() => setShowSidebar(false)}>
-                            <i className="bi bi-briefcase-fill"></i> Services
-                        </Link>
-                        <Link to="/admin/dashboard/categories" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/categories')}`} onClick={() => setShowSidebar(false)}>
-                            <i className="bi bi-tags-fill"></i> Categories
-                        </Link>
                         <Link to="/admin/dashboard/inquiries" className={`nav-link rounded py-3 px-4 d-flex align-items-center gap-3 ${isActive('/admin/dashboard/inquiries')}`} onClick={() => setShowSidebar(false)}>
                             <i className="bi bi-chat-square-text-fill"></i> Inquiries
                         </Link>
@@ -159,9 +134,6 @@ const Dashboard = () => {
                     <Container fluid className="px-0">
                         <Routes>
                             <Route path="/" element={<Overview />} />
-                            <Route path="/projects" element={<ProjectManagement />} />
-                            <Route path="/services" element={<ServiceManagement />} />
-                            <Route path="/categories" element={<CategoryManagement />} />
                             <Route path="/inquiries" element={<InquiryManagement />} />
                         </Routes>
                     </Container>
@@ -213,45 +185,7 @@ const Overview = () => {
             </div>
 
             <Row className="gy-4 mb-4">
-                <Col xl={3} md={6}>
-                    <Card className="dashboard-card h-100">
-                        <Card.Body>
-                            <div className="d-flex justify-content-between align-items-start mb-3">
-                                <div>
-                                    <h6 className="text-muted small text-uppercase fw-bold mb-1">Total Projects</h6>
-                                    <h2 className="card-title-lg mb-0">{stats.counts.projects}</h2>
-                                </div>
-                                <div className="bg-orange-subtle text-orange rounded p-2">
-                                    <i className="bi bi-collection fs-4"></i>
-                                </div>
-                            </div>
-                            <div className="d-flex align-items-center gap-2">
-                                <span className="trend-up"><i className="bi bi-arrow-up-short"></i> 12%</span>
-                                <span className="text-muted small">this month</span>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xl={3} md={6}>
-                    <Card className="dashboard-card h-100">
-                        <Card.Body>
-                            <div className="d-flex justify-content-between align-items-start mb-3">
-                                <div>
-                                    <h6 className="text-muted small text-uppercase fw-bold mb-1">Total Categories</h6>
-                                    <h2 className="card-title-lg mb-0">{stats.counts.categories}</h2>
-                                </div>
-                                <div className="bg-success bg-opacity-10 text-success rounded p-2">
-                                    <i className="bi bi-tags fs-4"></i>
-                                </div>
-                            </div>
-                            <div className="d-flex align-items-center gap-2">
-                                <span className="trend-up"><i className="bi bi-arrow-up-short"></i> 5%</span>
-                                <span className="text-muted small">new categories</span>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xl={3} md={6}>
+                <Col xl={6} md={6}>
                     <Card className="dashboard-card h-100">
                         <Card.Body>
                             <div className="d-flex justify-content-between align-items-start mb-3">
@@ -270,7 +204,7 @@ const Overview = () => {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col xl={3} md={6}>
+                <Col xl={6} md={6}>
                     <Card className="dashboard-card h-100">
                         <Card.Body>
                             <div className="d-flex justify-content-between align-items-start mb-3">
@@ -292,7 +226,7 @@ const Overview = () => {
             </Row>
 
             <Row className="gy-4 mb-4">
-                <Col lg={8}>
+                <Col lg={12}>
                     <Card className="dashboard-card h-100">
                         <Card.Header className="bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
                             <h5 className="fw-bold mb-0">Inquiry Analytics</h5>
@@ -321,84 +255,10 @@ const Overview = () => {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col lg={4}>
-                    <Card className="dashboard-card h-100">
-                        <Card.Header className="bg-white border-0 pt-4 px-4">
-                            <h5 className="fw-bold mb-0">Top Categories</h5>
-                        </Card.Header>
-                        <Card.Body className="d-flex flex-column justify-content-end px-4">
-                            {/* Simulated Bar Chart */}
-                            <div className="chart-bar-container">
-                                <div className="chart-bar-item">
-                                    <div className="chart-bar" style={{ height: '70%' }}></div>
-                                    <small className="mt-2 text-muted fw-bold" style={{ fontSize: '0.7rem' }}>Living</small>
-                                </div>
-                                <div className="chart-bar-item">
-                                    <div className="chart-bar" style={{ height: '90%', opacity: '0.8' }}></div>
-                                    <small className="mt-2 text-muted fw-bold" style={{ fontSize: '0.7rem' }}>Office</small>
-                                </div>
-                                <div className="chart-bar-item">
-                                    <div className="chart-bar" style={{ height: '50%', opacity: '0.6' }}></div>
-                                    <small className="mt-2 text-muted fw-bold" style={{ fontSize: '0.7rem' }}>Bdrm</small>
-                                </div>
-                                <div className="chart-bar-item">
-                                    <div className="chart-bar" style={{ height: '65%', opacity: '0.7' }}></div>
-                                    <small className="mt-2 text-muted fw-bold" style={{ fontSize: '0.7rem' }}>Ktchn</small>
-                                </div>
-                            </div>
-                            <div className="mt-3 text-center">
-                                <small className="text-muted">Most popular categories this month based on project uploads.</small>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </Col>
             </Row>
 
             <Row className="gy-4">
-                <Col lg={7}>
-                    <Card className="dashboard-card h-100">
-                        <Card.Header className="bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
-                            <h5 className="fw-bold mb-0">Recent Projects</h5>
-                            <Link to="projects" className="text-orange text-decoration-none small fw-bold">View All</Link>
-                        </Card.Header>
-                        <Card.Body className="p-0">
-                            <Table hover responsive className="mb-0 align-middle table-borderless">
-                                <thead className="bg-light">
-                                    <tr>
-                                        <th className="ps-4">Project Name</th>
-                                        <th>Category</th>
-                                        <th>Status</th>
-                                        <th className="pe-4 text-end">Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {stats.recentProjects.slice(0, 5).map(project => (
-                                        <tr key={project._id}>
-                                            <td className="ps-4">
-                                                <div className="d-flex align-items-center gap-3">
-                                                    {project.images && project.images[0] ? (
-                                                        <img src={process.env.REACT_APP_API_URL.replace('/api', '') + project.images[0]} alt="" className="rounded" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
-                                                    ) : (
-                                                        <div className="bg-light rounded d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><i className="bi bi-image text-muted"></i></div>
-                                                    )}
-                                                    <span className="fw-bold text-dark">{project.title}</span>
-                                                </div>
-                                            </td>
-                                            <td className="text-muted">{project.category?.name || 'Uncategorized'}</td>
-                                            <td>
-                                                <span className={`badge ${project.status === 'Active' ? 'bg-success-subtle text-success' : 'bg-secondary-subtle text-secondary'} rounded-pill fw-normal px-3`}>
-                                                    {project.status}
-                                                </span>
-                                            </td>
-                                            <td className="pe-4 text-end text-muted small">{new Date(project.createdAt).toLocaleDateString()}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </Table>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col lg={5}>
+                <Col lg={12}>
                     <Card className="dashboard-card h-100">
                         <Card.Header className="bg-white border-0 pt-4 px-4">
                             <h5 className="fw-bold mb-0">Recent Inquiries</h5>
