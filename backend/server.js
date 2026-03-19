@@ -26,7 +26,7 @@ app.use(cors({
         return callback(new Error(`CORS: Origin '${origin}' not allowed`));
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Admin-Secret'],
     credentials: true
 }));
 app.use(morgan('dev'));

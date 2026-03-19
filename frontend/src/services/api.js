@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL || 'https://interiordesign-server.onrender.com/api';
 
+// Must match ADMIN_SECRET in the backend .env (and Render environment variables)
+const ADMIN_SECRET = 'archevo-admin-secret-2024';
+
 const api = axios.create({
     baseURL: API_URL,
     headers: {
@@ -9,23 +12,17 @@ const api = axios.create({
     }
 });
 
-// Add a request interceptor to include auth token
+// Attach the admin secret header on every request when admin is logged in
 api.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            config.headers['Authorization'] = `Bearer ${token}`;
+        const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
+        if (isLoggedIn) {
+            config.headers['X-Admin-Secret'] = ADMIN_SECRET;
         }
         return config;
     },
     (error) => Promise.reject(error)
 );
-
-export const authService = {
-    login: (credentials) => api.post('/auth/login', credentials),
-    register: (credentials) => api.post('/auth/register', credentials),
-    getMe: () => api.get('/auth/me')
-};
 
 export const projectService = {
     getProjects: (params) => api.get('/projects', { params }),
@@ -60,4 +57,3 @@ export const statsService = {
 };
 
 export default api;
-

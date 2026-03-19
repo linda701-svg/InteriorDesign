@@ -1,21 +1,13 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+// Simple static-secret protection.
+// The frontend sends the header:  X-Admin-Secret: <value>
+// The backend checks it matches the ADMIN_SECRET env variable.
 
-exports.protect = async (req, res, next) => {
-    let token;
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        token = req.headers.authorization.split(' ')[1];
-    }
+exports.protect = (req, res, next) => {
+    const secret = req.headers['x-admin-secret'];
 
-    if (!token) {
+    if (!secret || secret !== process.env.ADMIN_SECRET) {
         return res.status(401).json({ success: false, message: 'Not authorized' });
     }
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = await User.findById(decoded.id);
-        next();
-    } catch (err) {
-        return res.status(401).json({ success: false, message: 'Not authorized' });
-    }
+    next();
 };
