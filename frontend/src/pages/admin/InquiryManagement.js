@@ -24,7 +24,8 @@ const InquiryManagement = () => {
             const res = await inquiryService.getInquiries();
             setInquiries(res.data.data || []);
         } catch (err) {
-            setError('Failed to fetch inquiries.');
+            console.error('Fetch error:', err);
+            setError(err.response?.data?.message || 'Failed to fetch inquiries. Please check your connection.');
         } finally {
             setLoading(false);
         }

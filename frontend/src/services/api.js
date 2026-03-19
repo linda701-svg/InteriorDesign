@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://interiordesign-server.onrender.com/api';
+// Automatically detect if we're in development or production
+// Use localhost if on dev, otherwise production URL
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000/api'
+    : 'https://interiordesign-server.onrender.com/api';
 
-// Must match ADMIN_SECRET in the backend .env (and Render environment variables)
+// This secret must match ADMIN_SECRET on the backend
 const ADMIN_SECRET = 'archevo-admin-secret-2024';
 
 const api = axios.create({
@@ -12,9 +16,10 @@ const api = axios.create({
     }
 });
 
-// Attach the admin secret header on every request when admin is logged in
+// Interceptor to attach admin secret to protected requests
 api.interceptors.request.use(
     (config) => {
+        // Only attach if user is logged in as admin locally
         const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
         if (isLoggedIn) {
             config.headers['X-Admin-Secret'] = ADMIN_SECRET;
@@ -24,6 +29,7 @@ api.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
+// Services
 export const projectService = {
     getProjects: (params) => api.get('/projects', { params }),
     getProject: (id) => api.get(`/projects/${id}`),

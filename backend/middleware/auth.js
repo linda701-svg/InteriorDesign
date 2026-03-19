@@ -1,12 +1,19 @@
-// Simple static-secret protection.
-// The frontend sends the header:  X-Admin-Secret: <value>
-// The backend checks it matches the ADMIN_SECRET env variable.
+// Static secret-string authentication
+// Used during the transition to a purely frontend-based admin account system.
+// Verify the X-Admin-Secret header matches ADMIN_SECRET in environment variables.
 
 exports.protect = (req, res, next) => {
-    const secret = req.headers['x-admin-secret'];
+    // Check both lowercase and exact case headers if normalized by intermediate proxies
+    const secretFromHeader = req.headers['x-admin-secret'] || req.headers['X-Admin-Secret'];
 
-    if (!secret || secret !== process.env.ADMIN_SECRET) {
-        return res.status(401).json({ success: false, message: 'Not authorized' });
+    // In local development, process.env.ADMIN_SECRET should match 'archevo-admin-secret-2024'
+    const adminSecret = process.env.ADMIN_SECRET || 'archevo-admin-secret-2024';
+
+    if (!secretFromHeader || secretFromHeader.trim() !== adminSecret.trim()) {
+        return res.status(401).json({
+            success: false,
+            message: 'Not authorized: Invalid or missing admin secret header'
+        });
     }
 
     next();
