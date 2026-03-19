@@ -6,17 +6,17 @@ import CategoryManagement from './CategoryManagement';
 import ServiceManagement from './ServiceManagement';
 import InquiryManagement from './InquiryManagement';
 import { statsService } from '../../services/api';
-import { useAuth } from '../../context/AuthContext';
 import './Dashboard.css';
 
 const Dashboard = () => {
-    const { logout, user } = useAuth();
+    const adminName = localStorage.getItem('adminName') || 'Admin';
     const navigate = useNavigate();
     const location = useLocation();
     const [showSidebar, setShowSidebar] = useState(false);
 
     const handleLogout = () => {
-        logout();
+        localStorage.removeItem('adminLoggedIn');
+        localStorage.removeItem('adminName');
         navigate('/admin/login');
     };
 
@@ -101,9 +101,9 @@ const Dashboard = () => {
                     <div className="border-start mx-2 h-50 d-none d-md-block"></div>
                     <div className="d-flex align-items-center gap-2">
                         <div className="bg-orange-subtle text-orange rounded-circle d-flex align-items-center justify-content-center fw-bold" style={{ width: '35px', height: '35px' }}>
-                            {user?.email?.charAt(0).toUpperCase()}
+                            {adminName.charAt(0).toUpperCase()}
                         </div>
-                        <span className="small text-muted d-none d-md-inline fw-bold">{user?.email}</span>
+                        <span className="small text-muted d-none d-md-inline fw-bold">{adminName}</span>
                     </div>
 
                 </div>

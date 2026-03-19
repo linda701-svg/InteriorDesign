@@ -98,8 +98,8 @@ const Footer = () => {
 
     <li className="mb-3 d-flex align-items-center gap-2">
         <FaChevronRight className="footer-link-marker" />
-        <Link to="/projects" className="footer-nav-link text-white text-decoration-none transition opacity-75">
-            Project
+        <Link to="/admin/login" className="footer-nav-link text-white text-decoration-none transition opacity-75">
+            Login
         </Link>
     </li>
 

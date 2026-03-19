@@ -1,22 +1,10 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { Spinner, Container } from 'react-bootstrap';
 
 const ProtectedRoute = ({ children }) => {
-    const { user, loading } = useAuth();
+    const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
 
-    if (loading) {
-        return (
-            <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            </Container>
-        );
-    }
-
-    if (!user) {
+    if (!isLoggedIn) {
         return <Navigate to="/admin/login" replace />;
     }
 
